@@ -1,15 +1,13 @@
-interface Directors extends Teacher {
-  numberOfReports: number;
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
 }
 
-// Usage
-const director: Directors = {
-  firstName: 'Jane',
-  lastName: 'Smith',
-  fullTimeEmployee: true,
-  yearsOfExperience: 10,
-  location: 'London',
-  numberOfReports: 5,
+// Implementation
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  const firstInitial = firstName.charAt(0).toUpperCase();
+  const formattedName = `${firstInitial}. ${lastName}`;
+  return formattedName;
 };
 
-console.log(director);
+// Usage
+console.log(printTeacher("John", "Doe")); // Output: J. Doe
