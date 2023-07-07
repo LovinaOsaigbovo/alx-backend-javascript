@@ -1,13 +1,25 @@
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClass;
 }
 
-// Implementation
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  const firstInitial = firstName.charAt(0).toUpperCase();
-  const formattedName = `${firstInitial}. ${lastName}`;
-  return formattedName;
-};
+interface StudentInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentInterface {
+  constructor(private firstName: string, private lastName: string) {}
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
 
 // Usage
-console.log(printTeacher("John", "Doe")); // Output: J. Doe
+const student: StudentInterface = new StudentClass('John', 'Doe');
+console.log(student.displayName()); // Output: John
+console.log(student.workOnHomework()); // Output: Currently working
