@@ -1,20 +1,15 @@
-interface Teacher {
-  firstName: string;
-  lastName: string;
-  readonly fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any;
+interface Directors extends Teacher {
+  numberOfReports: number;
 }
 
 // Usage
-const teacher: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
+const director: Directors = {
+  firstName: 'Jane',
+  lastName: 'Smith',
   fullTimeEmployee: true,
-  yearsOfExperience: 5,
-  location: 'New York',
-  contract: true, // Adding a dynamic attribute
+  yearsOfExperience: 10,
+  location: 'London',
+  numberOfReports: 5,
 };
 
-console.log(teacher);
+console.log(director);
